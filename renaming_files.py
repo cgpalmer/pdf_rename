@@ -1,5 +1,7 @@
 import os
 import pdfplumber
+import time
+start_time = time.time()
 
 for file in os.listdir("submission_upload/"):
     with pdfplumber.open(f"submission_upload/{file}") as pdf:
@@ -8,3 +10,5 @@ for file in os.listdir("submission_upload/"):
         formatted_text = extracted_text.splitlines()
         name = formatted_text[1]
         os.rename(f"submission_upload/{file}", f"submission_upload/{name}_{file}.pdf")
+
+print ("My program took", time.time() - start_time, "to run")
