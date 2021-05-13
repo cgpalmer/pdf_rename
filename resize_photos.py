@@ -15,11 +15,40 @@ start_time = time.time()
 #     name = file.split(".")
 #     img.save(f'resized_images/{name[0]}_mobile.jpg')
 
-basewidth = 1920
-for file in os.listdir("images/"):
-    img = Image.open(f"images/{file}")
-    wpercent = (basewidth / float(img.size[0]))
-    hsize = int((float(img.size[1]) * float(wpercent)))
-    img = img.resize((basewidth, hsize), Image.ANTIALIAS)
-    name = file.split(".")
-    img.save(f'resized_images/{name[0]}_mobile.jpg')
+def hd_photos():
+    basewidth = 1920
+    for file in os.listdir("images/"):
+        img = Image.open(f"images/{file}")
+        wpercent = (basewidth / float(img.size[0]))
+        hsize = int((float(img.size[1]) * float(wpercent)))
+        img = img.resize((basewidth, hsize), Image.ANTIALIAS)
+        name = file.split(".")
+        img.save(f'resized_images/hd/{name[0]}_mobile.jpg')
+
+
+
+def mobile_photos():
+    basewidth = 300
+    for file in os.listdir("images/"):
+        img = Image.open(f"images/{file}")
+        wpercent = (basewidth / float(img.size[0]))
+        hsize = int((float(img.size[1]) * float(wpercent)))
+        img = img.resize((basewidth, hsize), Image.ANTIALIAS)
+        name = file.split(".")
+        img.save(f'resized_images/mobile/{name[0]}_mobile.jpg')
+
+
+def tablet_photos():
+    basewidth = 768
+    for file in os.listdir("images/"):
+        img = Image.open(f"images/{file}")
+        wpercent = (basewidth / float(img.size[0]))
+        hsize = int((float(img.size[1]) * float(wpercent)))
+        img = img.resize((basewidth, hsize), Image.ANTIALIAS)
+        name = file.split(".")
+        img.save(f'resized_images/tablet/{name[0]}_mobile.jpg')
+
+
+mobile_photos()
+hd_photos()
+tablet_photos()
