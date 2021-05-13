@@ -1,6 +1,8 @@
 # Source: https://opensource.com/life/15/2/resize-images-python
 import os
 from PIL import Image
+import time
+start_time = time.time()
 
 # scale by setting a height
 
